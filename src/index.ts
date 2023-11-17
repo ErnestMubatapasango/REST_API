@@ -6,6 +6,7 @@ import cookieParser from "cookie-parser";
 import http from "http";
 import compression from "compression";
 import cors from "cors";
+import mongoose from "mongoose";
 
 const app = express(); //application initialization
 
@@ -23,3 +24,9 @@ const server = http.createServer(app);
 server.listen(8080, () => {
     console.log('server listening on http://localhost:8080');
 })
+
+const MONGODB_URL = "mongodb+srv://tawanda:r3UhNAiUYUB5mh4@cluster0.0b1jsal.mongodb.net/?retryWrites=true&w=majority"
+
+mongoose.Promise = Promise
+mongoose.connect(MONGODB_URL)
+mongoose.connection.on("error", (error: Error) => console.log(error))
