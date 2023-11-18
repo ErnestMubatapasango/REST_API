@@ -8,4 +8,4 @@
         "noImplicitAny": true, //enforces typescript rules
     },
     "include": ["src/**/*"],
-}
+} 

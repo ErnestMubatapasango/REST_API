@@ -8,6 +8,8 @@ import compression from "compression";
 import cors from "cors";
 import mongoose from "mongoose";
 
+import router from "./router";
+
 const app = express(); //application initialization
 
 app.use(cors({
@@ -30,3 +32,5 @@ const MONGODB_URL = "mongodb+srv://tawanda:r3UhNAiUYUB5mh4@cluster0.0b1jsal.mong
 mongoose.Promise = Promise
 mongoose.connect(MONGODB_URL)
 mongoose.connection.on("error", (error: Error) => console.log(error))
+
+app.use('/', router())
